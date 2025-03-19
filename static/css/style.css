@@ -1,0 +1,206 @@
+/**
+ * WWLD (What Would Lebron Do?) - Styles
+ * 
+ * A modern, responsive stylesheet for the WWLD application.
+ * Features a dark theme with smooth animations and professional styling.
+ * 
+ * Color Scheme:
+ * - Primary: Indigo (#6366f1)
+ * - Secondary: Light Indigo (#818cf8)
+ * - Background Dark: Navy (#0f172a)
+ * - Background Light: Slate (#1e293b)
+ * - Text Primary: White (#f8fafc)
+ * - Text Secondary: Gray (#94a3b8)
+ * - Success: Green (#22c55e)
+ * 
+ * Features:
+ * - Responsive design
+ * - Smooth animations
+ * - Modern CSS reset
+ * - CSS variables for theming
+ * - Flexbox layout system
+ */
+
+/* Modern CSS Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Theme Variables */
+:root {
+  --primary-color: #6366f1;
+  --secondary-color: #818cf8;
+  --background-dark: #0f172a;
+  --background-light: #1e293b;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --success-color: #22c55e;
+  --border-radius: 12px;
+  --transition: all 0.3s ease;
+}
+
+/* Base Styles */
+body {
+  font-family: "Inter", sans-serif;
+  background-color: var(--background-dark);
+  color: var(--text-primary);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Layout Components */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  width: 100%;
+}
+
+/* Header Styles */
+header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.5px;
+}
+
+.subtitle {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+}
+
+/* Main Content Layout */
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* Video Components */
+.video-container {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  background-color: var(--background-light);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+video {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+}
+
+#video {
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+
+#motivationVideo {
+  display: none;
+}
+
+.motivation-container {
+  width: 100%;
+  max-width: 800px;
+}
+
+/* Status Indicator */
+.status-indicator {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  color: var(--text-primary);
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--success-color);
+  border-radius: 50%;
+  margin-right: 0.5rem;
+  animation: pulse 2s infinite;
+}
+
+/* Footer Styles */
+footer {
+  margin-top: 3rem;
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+/* Animations */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .status-indicator {
+    font-size: 0.75rem;
+    padding: 0.4rem 0.8rem;
+  }
+}
+
+/* Video Transition Effects */
+#motivationVideo.show {
+  display: block;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

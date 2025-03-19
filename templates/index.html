@@ -1,0 +1,81 @@
+<!--
+  WWLD (What Would Lebron Do?) - AI Eating Detection System
+  
+  This is the main HTML template for the WWLD application.
+  It provides a user interface for:
+  1. Real-time webcam feed display
+  2. Eating detection visualization
+  3. Motivational video playback
+  
+  Structure:
+  - Header: Application title and subtitle
+  - Main: Video containers (webcam and motivational)
+  - Footer: Application description
+  
+  Dependencies:
+  - Inter font from Google Fonts
+  - style.css for styling
+  - main.js for application logic
+-->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WWLD? - What Would Lebron Do? AI Eating Detection</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Application Header -->
+      <header>
+        <h1>What Would Lebron Do?</h1>
+        <p class="subtitle">Your Smart Eating Detection Assistant</p>
+      </header>
+
+      <!-- Main Content Area -->
+      <main>
+        <!-- Webcam Feed Container -->
+        <div class="video-container">
+          <video id="video" autoplay></video>
+          <!-- Camera Status Indicator -->
+          <div class="status-indicator">
+            <div class="status-dot"></div>
+            <span>Camera Active</span>
+          </div>
+        </div>
+
+        <!-- Hidden Canvas for Image Processing -->
+        <canvas id="canvas" style="display: none"></canvas>
+
+        <!-- Motivational Video Section -->
+        <div class="motivation-container">
+          <video id="motivationVideo" controls>
+            <source
+              src="{{ url_for('static', filename='videos/motivation_video.mp4') }}"
+              type="video/mp4"
+            />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </main>
+
+      <!-- Application Footer -->
+      <footer>
+        <p>Keep your late-night snacking in check with AI-powered detection</p>
+      </footer>
+    </div>
+
+    <!-- Application Logic -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+  </body>
+</html>
