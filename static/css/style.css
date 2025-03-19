@@ -2,24 +2,26 @@
  * WWLD (What Would Lebron Do?) - Styles
  * 
  * A modern, responsive stylesheet for the WWLD application.
- * Features a dark theme with smooth animations and professional styling.
+ * Features a Lakers-themed design with LeBron James inspired styling.
  * 
  * Color Scheme:
- * - Primary: Indigo (#6366f1)
- * - Secondary: Light Indigo (#818cf8)
- * - Background Dark: Navy (#0f172a)
- * - Background Light: Slate (#1e293b)
- * - Text Primary: White (#f8fafc)
- * - Text Secondary: Gray (#94a3b8)
- * - Success: Green (#22c55e)
+ * - Primary: Lakers Purple (#552583)
+ * - Secondary: Lakers Gold (#FDB927)
+ * - Background Dark: Deep Purple (#2A1B3D)
+ * - Background Light: Royal Purple (#3B2B5D)
+ * - Text Primary: White (#FFFFFF)
+ * - Text Secondary: Light Gold (#FFE5B4)
+ * - Success: Lakers Gold (#FDB927)
  * 
  * Features:
- * - Responsive design
+ * - Lakers-inspired color scheme
+ * - Modern, responsive design
  * - Smooth animations
- * - Modern CSS reset
- * - CSS variables for theming
- * - Flexbox layout system
+ * - Professional styling
  */
+
+/* Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap");
 
 /* Modern CSS Reset */
 * {
@@ -30,15 +32,17 @@
 
 /* Theme Variables */
 :root {
-  --primary-color: #6366f1;
-  --secondary-color: #818cf8;
-  --background-dark: #0f172a;
-  --background-light: #1e293b;
-  --text-primary: #f8fafc;
-  --text-secondary: #94a3b8;
-  --success-color: #22c55e;
+  --primary-color: #552583; /* Lakers Purple */
+  --secondary-color: #fdb927; /* Lakers Gold */
+  --background-dark: #2a1b3d; /* Deep Purple */
+  --background-light: #3b2b5d; /* Royal Purple */
+  --text-primary: #ffffff; /* White */
+  --text-secondary: #ffe5b4; /* Light Gold */
+  --success-color: #fdb927; /* Lakers Gold */
   --border-radius: 12px;
   --transition: all 0.3s ease;
+  --box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2),
+    0 2px 4px -1px rgba(0, 0, 0, 0.1);
 }
 
 /* Base Styles */
@@ -64,19 +68,33 @@ body {
 header {
   text-align: center;
   margin-bottom: 3rem;
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--background-dark)
+  );
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
 }
 
 h1 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: var(--primary-color);
+  font-family: "Orbitron", sans-serif;
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: var(--secondary-color);
   margin-bottom: 0.5rem;
-  letter-spacing: -0.5px;
+  letter-spacing: -2px;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .subtitle {
+  font-family: "Orbitron", sans-serif;
   color: var(--text-secondary);
-  font-size: 1.1rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 1px;
 }
 
 /* Main Content Layout */
@@ -95,8 +113,8 @@ main {
   background-color: var(--background-light);
   border-radius: var(--border-radius);
   overflow: hidden;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  box-shadow: var(--box-shadow);
+  border: 2px solid var(--secondary-color);
 }
 
 video {
@@ -128,20 +146,26 @@ video {
   right: 1rem;
   display: flex;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.6);
-  padding: 0.5rem 1rem;
+  background-color: var(--primary-color);
+  padding: 0.75rem 1.5rem;
   border-radius: 20px;
+  font-family: "Orbitron", sans-serif;
   font-size: 0.875rem;
+  font-weight: 500;
   color: var(--text-primary);
+  border: 1px solid var(--secondary-color);
+  box-shadow: var(--box-shadow);
+  letter-spacing: 0.5px;
 }
 
 .status-dot {
-  width: 8px;
-  height: 8px;
-  background-color: var(--success-color);
+  width: 10px;
+  height: 10px;
+  background-color: var(--secondary-color);
   border-radius: 50%;
-  margin-right: 0.5rem;
+  margin-right: 0.75rem;
   animation: pulse 2s infinite;
+  box-shadow: 0 0 10px var(--secondary-color);
 }
 
 /* Footer Styles */
@@ -150,6 +174,13 @@ footer {
   text-align: center;
   color: var(--text-secondary);
   font-size: 0.875rem;
+  padding: 1rem;
+  background: linear-gradient(
+    135deg,
+    var(--background-dark),
+    var(--primary-color)
+  );
+  border-radius: var(--border-radius);
 }
 
 /* Animations */
@@ -157,14 +188,17 @@ footer {
   0% {
     transform: scale(1);
     opacity: 1;
+    box-shadow: 0 0 10px var(--secondary-color);
   }
   50% {
     transform: scale(1.2);
     opacity: 0.7;
+    box-shadow: 0 0 20px var(--secondary-color);
   }
   100% {
     transform: scale(1);
     opacity: 1;
+    box-shadow: 0 0 10px var(--secondary-color);
   }
 }
 
@@ -175,16 +209,19 @@ footer {
   }
 
   h1 {
-    font-size: 2rem;
+    font-size: 2.5rem;
+    letter-spacing: -1px;
   }
 
   .subtitle {
     font-size: 1rem;
+    letter-spacing: 0.5px;
   }
 
   .status-indicator {
     font-size: 0.75rem;
-    padding: 0.4rem 0.8rem;
+    padding: 0.5rem 1rem;
+    letter-spacing: 0.25px;
   }
 }
 
@@ -192,12 +229,14 @@ footer {
 #motivationVideo.show {
   display: block;
   animation: fadeIn 0.5s ease;
+  border: 2px solid var(--secondary-color);
+  border-radius: var(--border-radius);
 }
 
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
